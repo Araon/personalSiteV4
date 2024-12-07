@@ -1,0 +1,302 @@
+---
+title: ai?
+publishedAt: "2024-12-7"
+summary: promises, not priorities
+tags: ["AI", "Writing", "Rant"]
+---
+
+Today, I'm going to explain my framework for thinking about AI tools, what they're great at, what they're not so good at, why they don't live up to their claims.  
+And what to do about that.
+
+---
+
+<Image
+  width={1920}
+  height={1080}
+  caption="Apple Intelligence Presentation."
+  src="/blog/agi/apple_intelligence_presentation.png"
+/>
+🙄
+
+So, Apple Intelligence has been out for a couple of months now, but like a lot
+of AI promises, it's fallen a little short, right?
+
+<Image
+  width={1920}
+  height={1080}
+  caption="Blade Runner (2017)"
+  src="/blog/agi/blade_runnder_2017.png"
+/>
+
+- The AI hype train is driven by the tantalising promise of AGI, general intelligence, like we see in the movies:
+  - Maria, HAL, Marvin, Johnny Five, C-3PO, Rachel & Deckard, Holly, JARVIS, WALL-E
+- But, despite 4 years of promises, Apple Intelligence is the latest example of these products missing the mark.
+
+<Image width={1920} height={1080} caption="MkBHD." src="/blog/agi/mkbhd.png" />
+_"Almost useless."_ — [Marques Brownlee](https://www.youtube.com/watch?v=haDjmBT9tu4)
+
+The best two things that Marques, here, has to say about Apple Intelligence are:
+
+1. The background eraser tool is pretty good, and,
+2. it has bumped up the base RAM across all of Apple's hardware line-up
+
+---
+
+<Image width={1920} height={1080} caption="CNET." src="/blog/agi/CNET.png" />
+
+_"You have to be an idiot to like Apple Intelligence."_ — ["CNET](https://www.youtube.com/watch?v=D0V554NyXWM)
+
+CNET did not hold back on their criticism either.
+
+Apple Intelligence was announced at WWDC in June 2024, but didn't ship with the brand new iPhones and the other hardware that was announced then, and only after months were these strangely mediocre features released to us.
+
+The _really good_ stuff is coming, we are promised.
+
+And I believe we have heard that before.
+
+---
+
+## The Importance of Language
+
+A large discipline, containing many fields, with applications that are already so well-integrated with our tools that we forget about them:
+
+- Searching our photos by the contents of the photo instead of filename or date is AI.
+- Near-perfect (at least in English) voice recognition is AI
+- Generative fill for editing out unwanted parts of images is also AI
+
+These features are all AI tools, but we don't typically call them that.
+
+---
+
+<Image
+  width={1920}
+  height={1080}
+  caption="Tim Minchin, Storm."
+  src="/blog/agi/medicine.png"
+/>
+_"Do you know what they call alternative medicine that's been proved to work? Medicine."_
+— Tim Minchin, ["Storm"](https://www.youtube.com/watch?v=KtYkyB35zkk)
+
+## When It Works, We Stop Calling It AI
+
+Like when alternative medicine is proved to work, we call it medicine, when AI tech works, we stop calling it AI.  
+It fades into the background of our normal computing.
+
+---
+
+# 🤖
+
+# GenAI, LLM, GPT
+
+This rant is about Generative AI, Large Language Models, and GPT.  
+The technologies that the companies promise much with, but deliver surprisingly little.
+
+<Image
+  width={1920}
+  height={1080}
+  caption="Thesaurus."
+  src="/blog/agi/thesaurus.png"
+/>
+
+### Synonyms for Despair
+
+Large language models like ChatGPT are GREAT at comprehending language.  
+For instance: I've never used such a great thesaurus, you can just describe the feeling you want to convey, and get 10 reasonable words or phrases back.
+
+But start to use it for knowledge, not language, and you get into trouble.
+
+---
+
+<Image
+  width={1920}
+  height={1080}
+  caption="Aerosmith, Dream On."
+  src="/blog/agi/aerosmith.png"
+/>
+
+(the instrument is a harpsichord, not a piano)
+
+ChatGPT4 got this question partially wrong, and so did Claude, at time of writing.  
+Gemini got the right answer, a harpsichord, but did not also identify the second instrument, a Mellotron, which ChatGPT did.
+
+The more specific the answers you want, the less reliable LLMs are.
+
+### Approximate Knowledge
+
+It reminds me of the Demon Cat from Adventure Time, which has approximate knowledge of many things.  
+It's very confident, but often inaccurate.
+
+<Image
+  width={1920}
+  height={1080}
+  caption="Adventure Time. S1E18"
+  src="/blog/agi/demon_cat.png"
+/>
+---
+
+## The Limits of Specificity
+
+<Image width={1920} height={1080} caption="GPT-3." src="/blog/agi/graph.svg" />
+
+This trend exists across all the GPT tools I have tested, from cloud providers such as OpenAI to running and tweaking my own local models with Ollama.
+
+But that's fine! There's SO much value on the left of this graph!  
+For initial research and shallow exploration, you can ABSOLUTELY use a GPT tool to quickly find areas you want to look into deeper for yourself.
+
+However, there are real limits in these generative techniques that you come up against very soon after you start using them for complex work.
+
+Let's talk about where these limits come from, and how to avoid them.
+
+---
+
+## GPT Is Autocorrect
+
+> The Magic Beans Don't Work
+> Because They Don't Have To
+
+GPT is a marvel of natural language processing. Autocorrect that is trained on the whole internet can almost always offer sensible suggestions about what should come next in a sentence. It's complex enough to pass the Turing Test
+
+_"The ability to speak does not make you intelligent."_ — Qui-Gon Jinn, Episode 1
+
+but Language ability, as we learned in Star Wars, does not equal Intelligence
+
+> What apples grow in the UK?
+>
+> The UK is home to a variety of apple types, many of which thrive in its temperate climate. Some apples are traditional...
+
+The above is a typical response from ChatGPT as of today - December 7th, 2024.
+
+The problem is that we are extremely language-centric creatures, and we mistake language proficiency for intelligence, which causes us to misuse this technology.  
+Or for this technology to misuse us.
+
+You're not chatting to an intelligent agent, it's autocompleting your questions, like a sociopath getting under your skin by saying what it thinks you want to hear.
+
+---
+
+## LLMs Can't Math
+
+```md
+1+1=2
+
+vs
+
+2e² + 5j = 0
+```
+
+Large Language Models can only master topics with a vast amount of language data available for training.
+
+For example, the reason LLMs can't autocomplete complex math is because, beyond simple equations, the state space of all numbers is too extensive to find sufficient training data.
+
+Compare how frequently `1+1=2` appears in textbooks—making it easy for ChatGPT to complete—with a rarer equation like `2e² + 5j = 0`.
+
+One equation benefits from abundant natural language data during training, while the other does not.
+
+## ChatGPT
+
+<Image
+  width={1920}
+  height={1080}
+  caption="ChatGPT can make mistakes."
+  src="/blog/agi/chatgpt_mistake.png"
+/>
+
+This is why tools like ChatGPT seem good at first, when you ask it simple questions, but as you dig deeper, they fall apart and get increasingly inaccurate, or hit artificial guard rails and only provide surface level responses.
+
+---
+
+## LLMs Can't Learn Specifics
+
+<div className="grid grid-cols-2 grid-rows-2 gap-1 overflow-clip rounded-lg">
+  <Image width={1920} height={1080} src="/blog/agi/phd.png" />
+  <Image width={1920} height={1080} src="/blog/agi/phd_closeup.png" />
+</div>
+
+It's not that the technology is new, and will eventually get better, it's that this incredible language ability CAN ONLY WORK after being trained on large amounts of data.
+
+By definition, there might be only a single PhD written about a very niche topic.  
+So GPT will never learn that information, because a single PhD paper is not a large amount of language.
+
+And if you don't have a large amount of language, you can't train a large language model.
+
+AI companies can't fulfil their wild promises, so why do they make them?
+
+---
+
+## We're Not the Audience
+
+I was confused by the dissonance between the hype and reality, until I realised we're not the audience for all this breathless hype.
+
+As I've shown, if you take the claims at face value, these technologies simply don't work.  
+And things that don't work can't solve problems.  
+And you can't sell someone something that doesn't solve their problem, not twice anyway.
+
+So why do the companies keep making these promises?
+
+_It's capitalism_
+
+---
+
+## Capitalism Is Working Fine
+
+WELL:
+
+- It's not demand from the customers
+- Nor direction from their engineers,
+- not even, really, by choices made by their CEOs.
+
+It's because the real decision-makers in these companies are their wealthy investors.
+
+Broken or mediocre AI tools (that we all hate) have been crammed into everything we use - now even our notifications - because the companies have to impress investors with AI features, even if they don't work well.
+
+---
+
+## The Startup Runway
+
+<Image
+  width={1920}
+  height={1080}
+  src="/blog/agi/startup_runway.excalidraw.svg"
+/>
+
+When you work in tech startups, as I have over the past 4 years, you get to know the startup runway very well.
+
+I wasn't always, as a lowly engineer, privy to the actual amount of funding coming in and salaries going out each month, but we would all be able to feel when the end of the runway was in sight.
+
+You can typically extend your runway in two main ways:
+
+1. Selling products and services to users for money
+2. Persuading investors to part with more of their money
+
+Selling products is HARD! They have to work!  
+But selling a promise? That's EASY.
+
+---
+
+## Plus Ça Change?
+
+_"The more things change, the more they stay the same."_
+
+### We're Bad at Identifying Confidence Tricksters
+
+<Image
+  width={1920}
+  height={1080}
+  caption="Shooting Fish (1997)."
+  src="/blog/agi/tickster.png"
+/>
+
+GenAI is this perfect tool for tricking investors out of their money because, often enough, the people asking for the money - and their customers - think it works too!
+
+LLMs are great at basic stuff, and in the past when a computer could automate basic tasks to a good degree, it only required time, improvements, and of course money, to perfect.
+
+As an investor, surely you'd better get in on the ground floor of this marvellous new technology!
+
+Just as you have before.
+
+---
+
+## I Don't Want Things That Only _Seem_ Like They Work
+
+From colonies on Mars to democratising money, it's always easier to promise a bright future than build a better present.
+
+What I remind myself to do, whenever I see these bazaar products that no-one needs, is to pay less attention to what these companies say their tech will do in the FUTURE, and far more to what they actually can do TODAY.
