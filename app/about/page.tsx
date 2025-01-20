@@ -9,6 +9,9 @@ import Gallery from "./components/Gallery";
 
 import medarjeeling from "public/gallery/me-darjeeling.jpg";
 import punehill from "public/gallery/doremon-hill.jpg";
+import growthxLogo from "public/company/growthx.svg";
+import onlinesalesLogo from "public/company/onlinesales.svg";
+import matrixLogo from "public/company/matrix.svg";
 
 export const metadata: Metadata = {
   title: "Me? | Araon",
@@ -156,24 +159,21 @@ const workplaces = [
     title: "SDE",
     company: "GrowthX",
     time: "Present",
-    imageSrc:
-      "https://media.licdn.com/dms/image/D560BAQEoiyoo__Lm0w/company-logo_200_200/0/1707057683269/growthxclub_logo?e=1724284800&v=beta&t=b-xlyFu220SkgvpDp8Asu2_J5TwumQO4yOpA0VxFyO4",
+    imageSrc: growthxLogo,
     link: "https://www.growthx.club",
   },
   {
     title: "SDE",
     company: "Onlinesales.ai",
     time: "3 Years",
-    imageSrc:
-      "https://media.licdn.com/dms/image/C560BAQE6DCYuD4cVMA/company-logo_200_200/0/1668495158227/onlinesalesai_logo?e=1720051200&v=beta&t=R0NyQCV6L_477XgeJglIjyRhbHkGDelb1lPGTqyLp1Y",
+    imageSrc: onlinesalesLogo,
     link: "https://Onlinesales.ai",
   },
   {
     title: "Intern",
     company: "Matrix",
     time: "1 Year",
-    imageSrc:
-      "https://media.licdn.com/dms/image/D560BAQGabBcg7xuFCw/company-logo_200_200/0/1697634636389/matrix_international__logo?e=1720051200&v=beta&t=Zl3z4MLqf7aItQeYJnzT7Y68C1115c2xq8GERhb3rDk",
+    imageSrc: matrixLogo,
     link: "https://www.linkedin.com/company/matrix-international-/?originalSubdomain=in",
   },
 ];

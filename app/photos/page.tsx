@@ -25,15 +25,17 @@ export default function Photos() {
         </div>
       </div>
 
-      <div className="animate-in" style={{ "--index": 2 } as React.CSSProperties}>
+      <div
+        className="animate-in"
+        style={{ "--index": 2 } as React.CSSProperties}
+      >
         <Gallery />
       </div>
-      
+
       <div
         className="flex animate-in flex-col gap-16 md:gap-24"
         style={{ "--index": 3 } as React.CSSProperties}
-      >
-      </div>
+      ></div>
     </div>
   );
 }
