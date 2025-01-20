@@ -133,9 +133,15 @@ function Photo({
             alt={alt}
             width={newWidth}
             height={newHeight}
-            className="pointer-events-none absolute inset-0 h-full w-full rounded-2xl bg-gray-400 object-cover "
+            className="pointer-events-none absolute inset-0 h-full w-full rounded-2xl bg-gray-400 object-cover"
             priority
+            aria-describedby={`photo-${index}-description`}
           />
+          {meta && (
+            <span id={`photo-${index}-description`} className="sr-only">
+              {meta}
+            </span>
+          )}
           {children}
         </div>
         <div
@@ -171,11 +177,46 @@ function Photo({
 
 
 export default function Gallery() {
-  const photosUrl = GetPhotos();
-  if (!photosUrl) return <div>Loading...</div>
+  const { data: photosUrl, error: photosError } = useSWR(
+    `/api/prisma/fetchPhotos`,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      dedupingInterval: 3600000,
+    }
+  );
+  
+  if (photosError) {
+    return (
+      <div className="flex flex-col items-center justify-center p-8 text-center">
+        <p className="text-red-500 mb-4">Unable to load photos</p>
+        <button 
+          onClick={() => window.location.reload()} 
+          className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+        >
+          Try Again
+        </button>
+      </div>
+    );
+  }
+  
+  if (!photosUrl) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 lg:gap-48 animate-pulse">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div key={i} className="h-64 bg-gray-200 rounded-2xl"></div>
+        ))}
+      </div>
+    );
+  }
+  
   return (
-    <>
-      <section className="grid grid-cols-3 gap-48 auto-rows-min">
+    <section 
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 lg:gap-48 auto-rows-min"
+      aria-label="Photo gallery"
+      role="region"
+    >
       {/* @ts-ignore */}
       {photosUrl.photos.map((photo, index) => (
           <Photo
@@ -192,6 +233,5 @@ export default function Gallery() {
           />
         ))}
       </section>
-    </>
-  );
+    );
 }

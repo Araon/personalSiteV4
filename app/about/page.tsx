@@ -9,6 +9,9 @@ import Gallery from "./components/Gallery";
 
 import medarjeeling from "public/gallery/me-darjeeling.jpg";
 import punehill from "public/gallery/doremon-hill.jpg";
+import growthxLogo from "public/company/growthx.svg";
+import onlinesalesLogo from "public/company/onlinesales.svg";
+import matrixLogo from "public/company/matrix.svg";
 
 export const metadata: Metadata = {
   title: "Me? | Araon",
@@ -96,7 +99,7 @@ export default function About() {
               >
                 photos
               </Link>{" "}
-              , practicing my punches or riding my bike :)
+              or riding my bike somewhere.
             </p>
           </div>
         </Section>
@@ -104,9 +107,45 @@ export default function About() {
         <Section heading="Work" headingAlignment="left">
           <div className="flex w-full flex-col gap-8">
             <p>
-              I started my career freelancing for seniors, building discord bots and renting out game servers.
+              I started my career freelancing for seniors, building discord bots
+              and renting out game servers.
             </p>
             <Workplaces items={workplaces} />
+          </div>
+        </Section>
+
+        <Section heading="Resume" headingAlignment="left">
+          <div className="flex flex-col gap-6">
+            <p>
+              Want to know more about my professional experience? Check out my
+              resume below.
+            </p>
+            <Link
+              href="/resume/Soumik_Ghosh_24_02_09.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit items-center gap-2 rounded-lg border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:bg-neutral-100 dark:border-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-file-text"
+              >
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" x2="8" y1="13" y2="13" />
+                <line x1="16" x2="8" y1="17" y2="17" />
+                <line x1="10" x2="8" y1="9" y2="9" />
+              </svg>
+              View Resume
+            </Link>
           </div>
         </Section>
 
@@ -156,24 +195,21 @@ const workplaces = [
     title: "SDE",
     company: "GrowthX",
     time: "Present",
-    imageSrc:
-      "https://media.licdn.com/dms/image/D560BAQEoiyoo__Lm0w/company-logo_200_200/0/1707057683269/growthxclub_logo?e=1724284800&v=beta&t=b-xlyFu220SkgvpDp8Asu2_J5TwumQO4yOpA0VxFyO4",
+    imageSrc: growthxLogo,
     link: "https://www.growthx.club",
   },
   {
     title: "SDE",
     company: "Onlinesales.ai",
     time: "3 Years",
-    imageSrc:
-      "https://media.licdn.com/dms/image/C560BAQE6DCYuD4cVMA/company-logo_200_200/0/1668495158227/onlinesalesai_logo?e=1720051200&v=beta&t=R0NyQCV6L_477XgeJglIjyRhbHkGDelb1lPGTqyLp1Y",
+    imageSrc: onlinesalesLogo,
     link: "https://Onlinesales.ai",
   },
   {
     title: "Intern",
     company: "Matrix",
     time: "1 Year",
-    imageSrc:
-      "https://media.licdn.com/dms/image/D560BAQGabBcg7xuFCw/company-logo_200_200/0/1697634636389/matrix_international__logo?e=1720051200&v=beta&t=Zl3z4MLqf7aItQeYJnzT7Y68C1115c2xq8GERhb3rDk",
+    imageSrc: matrixLogo,
     link: "https://www.linkedin.com/company/matrix-international-/?originalSubdomain=in",
   },
 ];

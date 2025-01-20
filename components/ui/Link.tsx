@@ -6,6 +6,8 @@ type LinkProps = {
   children: ReactNode;
   className?: string;
   underline?: boolean;
+  target?: string;
+  rel?: string;
 } & NextLinkProps;
 
 export default function Link(props: LinkProps) {
