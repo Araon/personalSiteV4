@@ -3,9 +3,6 @@ import { Metadata } from "next";
 
 import Gallery from "@/components/Gallery";
 
-import medarjeeling from "public/gallery/me-darjeeling.jpg"
-import meCamera from "public/gallery/create.jpg"
-
 export const metadata: Metadata = {
   title: "Photographs | Araon",
   description: "Some photos I took",
@@ -18,7 +15,7 @@ export default function Photos() {
         <h1 className="animate-in text-3xl font-bold tracking-tight">
           Photos I took 📷
         </h1>
-        <div className="hidden md:block">
+        <div>
           <p
             className="animate-in text-secondary"
             style={{ "--index": 1 } as React.CSSProperties}
@@ -26,50 +23,12 @@ export default function Photos() {
             well, at least I tried
           </p>
         </div>
-        <div className="mb-8 md:hidden">
-        <div>
-          <p
-            className="animate-in text-secondary"
-            style={{ "--index": 1 } as React.CSSProperties}
-          >
-            Well rest you have to check my instagram
-          </p>
-        </div>
-      </div>
       </div>
 
-      <div className="mb-8 md:hidden">
-        <div
-          className="animate-in"
-          style={{ "--index": 1 } as React.CSSProperties}
-        >
-          <Image
-            src={medarjeeling}
-            alt={"me in darjeeling"}
-            width={220}
-            height={260}
-            className="pointer-events-none relative inset-0 -top-2 h-60 -rotate-6 rounded-2xl bg-gray-400 object-cover shadow-md"
-            priority
-          />
-        </div>
-
-        <div
-          className="animate-in"
-          style={{ "--index": 2 } as React.CSSProperties}
-        >
-          <Image
-            src={meCamera}
-            alt={"guitar from k-on"}
-            width={220}
-            height={260}
-            className="pointer-events-none absolute inset-0 -top-40 left-[45%] w-48 rotate-6 rounded-2xl bg-gray-400 object-cover shadow-md md:left-[60%] md:w-56"
-            priority
-          />
-        </div>
-      </div>
-      <div className="hidden md:block">
+      <div className="animate-in" style={{ "--index": 2 } as React.CSSProperties}>
         <Gallery />
       </div>
+      
       <div
         className="flex animate-in flex-col gap-16 md:gap-24"
         style={{ "--index": 3 } as React.CSSProperties}

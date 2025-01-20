@@ -175,7 +175,7 @@ export default function Gallery() {
   if (!photosUrl) return <div>Loading...</div>
   return (
     <>
-      <section className="grid grid-cols-3 gap-48 auto-rows-min">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 lg:gap-48 auto-rows-min">
       {/* @ts-ignore */}
       {photosUrl.photos.map((photo, index) => (
           <Photo
