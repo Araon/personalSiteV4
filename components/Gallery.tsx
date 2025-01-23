@@ -1,18 +1,16 @@
 "use client";
 
 import { ReactNode } from "react";
-import useSWR from "swr"
+import useSWR from "swr";
 import fetcher from "@/lib/fetcher";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 // import localFont from "next/font/local";
 
-import {Inter} from "next/font/google";
+import { Inter } from "next/font/google";
 
 import Halo from "@/components/ui/Halo";
-
-
 
 // const ticketingFont = localFont({
 //   src: "../../../public/ticketing.woff2",
@@ -20,10 +18,9 @@ import Halo from "@/components/ui/Halo";
 // });
 
 const ticketingFont = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-})
-
+  subsets: ["latin"],
+  display: "swap",
+});
 
 type PhotoProps = {
   src: StaticImageData | string;
@@ -83,15 +80,14 @@ function Photo({
       `${src.src.split("/").at(-1)?.split(".")[0]}.jpg`);
   const shared = "absolute h-full w-full rounded-2xl overflow-hidden";
   return (
-<motion.div
-      className="mx-auto cursor-grab relative hover:before:absolute hover:before:-left-7 hover:before:-top-8 hover:before:block hover:before:h-[300px] hover:before:w-[calc(100%+55px)]"
-      style={{ width: newWidth, height: newHeight}}
+    <motion.div
+      className="relative cursor-grab hover:before:absolute hover:before:-left-7 hover:before:-top-8 hover:before:block hover:before:h-[300px] hover:before:w-[calc(100%+55px)]"
+      style={{ width: newWidth, height: newHeight }}
       initial={{
         width,
         height,
         rotate: (rotate || 0) - 20,
         y: 200 + index * 20,
-        x: index === 1 ? -60 : index === 2 ? -30 : index === 3 ? 30 : 60,
         opacity: 0,
       }}
       transition={{
@@ -109,7 +105,7 @@ function Photo({
         },
         scale: { duration: 0.12 },
       }}
-      animate={{ width, height, rotate, y: 0, opacity: 1, x: 0 }}
+      animate={{ width, height, rotate, y: 0, opacity: 1 }}
       drag
       whileTap={{ scale: 1.1, cursor: "grabbing" }}
       whileDrag={{ scale: 1.1, cursor: "grabbing" }}
@@ -174,8 +170,6 @@ function Photo({
   );
 }
 
-
-
 export default function Gallery() {
   const { data: photosUrl, error: photosError } = useSWR(
     `/api/prisma/fetchPhotos`,
@@ -184,54 +178,54 @@ export default function Gallery() {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
       dedupingInterval: 3600000,
-    }
+    },
   );
-  
+
   if (photosError) {
     return (
       <div className="flex flex-col items-center justify-center p-8 text-center">
-        <p className="text-red-500 mb-4">Unable to load photos</p>
-        <button 
-          onClick={() => window.location.reload()} 
-          className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+        <p className="mb-4 text-red-500">Unable to load photos</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="rounded-lg bg-gray-100 px-4 py-2 transition-colors hover:bg-gray-200"
         >
           Try Again
         </button>
       </div>
     );
   }
-  
+
   if (!photosUrl) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 lg:gap-48 animate-pulse">
+      <div className="grid animate-pulse grid-cols-1 gap-8 md:grid-cols-2 md:gap-16 lg:grid-cols-3 lg:gap-48">
         {[1, 2, 3, 4, 5, 6].map((i) => (
-          <div key={i} className="h-64 bg-gray-200 rounded-2xl"></div>
+          <div key={i} className="h-64 rounded-2xl bg-gray-200"></div>
         ))}
       </div>
     );
   }
-  
+
   return (
-    <section 
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 lg:gap-48 auto-rows-min"
+    <section
+      className="grid auto-rows-min grid-cols-1 place-items-center gap-8 md:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:gap-16"
       aria-label="Photo gallery"
       role="region"
     >
       {/* @ts-ignore */}
       {photosUrl.photos.map((photo, index) => (
-          <Photo
-            key={photo.photo_url}
-            src={photo.photo_url}
-            meta={photo.views+' '+photo.alt_text}
-            alt={photo.alt_text}
-            width={photo.width/12}
-            height={photo.height/12}
-            rotate={index % 3 === 0 ? 6.3 : -6}
-            left={index * 150 + (index % 2 === 0 ? -115 : 108)}
-            index={index + 1}
-            flipDirection={index % 2 === 0 ? "left" : undefined}
-          />
-        ))}
-      </section>
-    );
+        <Photo
+          key={photo.photo_url}
+          src={photo.photo_url}
+          meta={photo.views + " " + photo.alt_text}
+          alt={photo.alt_text}
+          width={photo.width / 12}
+          height={photo.height / 12}
+          rotate={index % 3 === 0 ? 6.3 : -6}
+          left={index * 150 + (index % 2 === 0 ? -115 : 108)}
+          index={index + 1}
+          flipDirection={index % 2 === 0 ? "left" : undefined}
+        />
+      ))}
+    </section>
+  );
 }
