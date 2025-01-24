@@ -24,7 +24,8 @@ const nextConfig = {
       "uploads-ssl.webflow.com",
       "j.gifs.com",
       "dicebear.com",
-      "raw.githubusercontent.com"
+      "raw.githubusercontent.com",
+      "i.scdn.co" // Spotify album artwork
     ],
   },
 };
