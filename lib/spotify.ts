@@ -2,12 +2,6 @@ const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 
-console.log("Spotify Config:", {
-  hasClientId: !!client_id,
-  hasClientSecret: !!client_secret,
-  hasRefreshToken: !!refresh_token
-});
-
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 const TOP_TRACKS_ENDPOINT = "https://api.spotify.com/v1/me/top/tracks";
@@ -15,7 +9,6 @@ const RECENTLY_PLAYED_ENDPOINT =
   "https://api.spotify.com/v1/me/player/recently-played";
 
 const getAccessToken = async () => {
-  console.log("Getting access token...");
   const response = await fetch(TOKEN_ENDPOINT, {
     method: "POST",
     headers: {
@@ -29,7 +22,6 @@ const getAccessToken = async () => {
   });
 
   const data = await response.json();
-  console.log("Access token response status:", response.status);
   if (!response.ok) {
     console.error("Failed to get access token:", data);
     throw new Error("Failed to get access token");
@@ -38,7 +30,6 @@ const getAccessToken = async () => {
 };
 
 export const getTopTracks = async () => {
-  console.log("Getting top tracks...");
   const { access_token } = await getAccessToken();
 
   const response = await fetch(TOP_TRACKS_ENDPOINT, {
@@ -60,7 +51,6 @@ export const getTopTracks = async () => {
 };
 
 export const getRecentlyPlayed = async () => {
-  console.log("Getting recently played...");
   const { access_token } = await getAccessToken();
 
   const response = await fetch(RECENTLY_PLAYED_ENDPOINT, {
